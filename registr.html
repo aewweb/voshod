@@ -6,23 +6,18 @@
   <title>ВОСХОД</title>
   <link rel="stylesheet" href="style.css" />  
 </head>
-<body>
-  <div class="background-top" style="height: 750px;"></div>
-  <div class="background-down"></div>
-  
+<body>  
   <!-- Контейнер с текстом поверх облаков -->
-  <div class="content">
-    <header class="header-with-button">
-      <h1>ВОСХОД</h1>
-      <button disabled class="date-button">20.09.2025</button>
-    </header>
-    <p class="subtitle">изменения уже здесь</p>
+    <section class="hero-header-section">
+      <div class="hero-header">
+        <h1>ВОСХОД</h1>
+        <button disabled class="date-button">20.09.2025</button>
+      </div>
+      <p class="subtitle">изменения уже здесь</p>
+    </section>
 
     <div class="centered-button">
-      <button disabled class="info">ДЛЯ УЧАСТИЯ</button>
-    </div>
-    <div class="centered-button">
-      <button disabled class="add-info">ЗАПОЛНИТЕ ФОРМУ</button>
+      <button disabled class="date-button">Для участия заполните форму</button>
     </div>
 
     <form id="participationForm" style="margin-top: 20px;">
@@ -48,8 +43,6 @@
       <div class="cloud cloud4" style="width: 70%;"></div>
     </div>
     
-  </div>
-
   <!-- Swiper JS -->
   <script src="script.js"></script>
   

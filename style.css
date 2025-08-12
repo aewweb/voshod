@@ -413,36 +413,187 @@ h1, h2 {
   }
 }
 
+/*ФОРМА РЕГИСТРАЦИИ*/
 
-/* Форма регистрации */
-.header-with-button {
-  display: flex;
-  justify-content: space-between;
+/* Секция заголовка с датой — горизонтальное выравнивание */
+.hero-header-section {
+  text-align: center;
+}
+
+/* Контейнер для заголовка и кнопки даты — выстроить в строку и центрировать */
+.hero-header-section .hero-header {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 20px; /* расстояние между заголовком и кнопкой */
+  flex-wrap: nowrap;
+  margin-bottom: 8px;
+}
+
+/* Стиль заголовка */
+.hero-header-section .hero-header h1 {
+  margin-top: 40px;
+  font-size: 3.5rem;  
+}
+
+/* подпись под заголовком */
+.hero-header-section .subtitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.1em; /* увеличивает расстояние и визуально "разгружает" текст */
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2.8vw, 2.5rem);
+  color: #C17BA0;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(6,12,40,0.25);
+}
+
+/* Кнопка с датой — немного уменьшенная, чтобы гармонично смотреться рядом с заголовком */
+.date-button {
+  font-size: 1.3rem;
+  padding: 10px 26px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  background-color: transparent;
+  color: #C17BA0;
+  border: 2px solid #C17BA0;
+  border-radius: 10px;
+  box-shadow: 0 0 7px #d480a6;
+  cursor: default;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.centered-button .date-button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  margin-top: 15px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+  width: 95%;
+}
+
+/* Стили для формы регистрации */
+form#participationForm {
+  max-width: 360px;
+  margin: 0 auto 40px auto;
+  padding: 0 10px;
 }
 
 .form-field {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-align: center;
 }
+
 .form-field input {
-  width: 300px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid white;
-  border-radius: 30px;
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.7); /* более яркая рамка */
+  border-radius: 10px;
   outline: none;
-}
-.form-field input:focus {
-  border-color: #C17BA0;
-  box-shadow: 0 0 10px #C17BA0;
+  background-color: rgba(255, 255, 255, 0.25); /* менее прозрачный фон */
+  color: white;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
-.cloud-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.form-field input::placeholder {
+  color: rgba(255, 255, 255, 0.9); /* более яркий placeholder */
 }
+
+.form-field input:focus {
+  border-color: #C17BA0;
+  box-shadow: 0 0 12px #C17BA0;
+  background-color: rgba(255 255 255 / 0.15);
+}
+
+@media (min-width: 768px) {
+
+  /* Секция заголовка */
+  .hero-header-section {
+    text-align: center;
+  }
+
+  /* Контейнер заголовка и кнопки — flex с justify-content: space-between, ширина фиксированная и центр */
+  .hero-header-section .hero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 40px auto 8px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  /* Заголовок "ВОСХОД" — слева */
+  .hero-header-section .hero-header h1 {
+    margin: 0;
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  /* Кнопка с датой — справа */
+  .hero-header-section .hero-header .date-button {
+    font-size: 1.5rem;
+    padding: 12px 32px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #d480a6;
+  }
+
+  /* Подпись под заголовком */
+  .hero-header-section .subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  /* Форма регистрации */
+  form#participationForm {
+    max-width: 500px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+  }
+
+  .form-field input {
+    font-size: 1.3rem;
+    padding: 18px 24px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .form-field input::placeholder {
+    font-size: 1.15rem;
+  }
+
+  .form-field {
+    margin-bottom: 25px;
+  }
+
+  /* Кнопка УЧАСТВОВАТЬ */
+  .centered-button .glow-on-hover {
+    font-size: 1.3rem;
+    padding: 16px 48px;
+    border-radius: 30px;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Кнопка "Для участия заполните форму" */
+  .centered-button .date-button {
+    font-size: 1.25rem;
+    padding: 14px 30px;
+    border-radius: 10px;
+    width: auto;
+    max-width: 400px;
+    margin: 0 auto 30px auto;
+  }
+
+}
+
 
 /* ==== АДАПТАЦИЯ ДЛЯ КОМПЬЮТЕРА ==== */
 @media (min-width: 768px) {
