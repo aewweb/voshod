@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ВОСХОД</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+  <!-- Секция 1: Верхнее оформление -->
+  <section class="hero">
+    <div class="cloud-container">
+      <div class="cloud cloud1"></div>
+      <div class="cloud cloud2"></div>
+      <div class="cloud cloud3"></div>
+    </div>
+
+    <header class="hero-header">
+      <h1>ВОСХОД</h1>
+      <p class="subtitle">изменения уже здесь</p>
+    </header>
+
+    <div class="arrow-7">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="centered-button">
+      <button class="glow-on-hover" onclick="scrollToTable()">УЧАСТВОВАТЬ</button>
+    </div>
+  </section>
+
+<!-- Секция 2: Что вас ждёт -->
+<section class="features">
+  <h2>ЧТО ВАС ЖДЕТ</h2>
+  <div class="scroll-stack">
+    <div class="square-block color1">
+      <div class="square-text">
+        «Восход» — это день, когда вы выбираете себя. Мы создаём пространство для обновления, вдохновения и движения вперёд.
+      </div>
+    </div>
+    <div class="square-block color2">
+      <div class="square-text">
+        Вас ждут практики осознанности, общения, ресурсные зоны, мастер-классы и диалог с экспертами — всё для внутренней гармонии и роста.
+      </div>
+    </div>
+    <div class="square-block color3">
+      <div class="square-text">
+        Присоединяйтесь к «Восходу» и начинайте утро новой жизни вместе с единомышленниками. Этот день может стать точкой опоры.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Секция 3: Заявка + Карусель -->
+<section class="application">
+  <div class="centered-button">
+    <a href="registr.html" id="zayavka" class="glow-on-hover" style="text-decoration: none;">Отправить заявку</a>
+  </div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image: url('slide2.png');"></div>
+      <div class="swiper-slide" style="background-image: url('slide3.png');"></div>
+      <div class="swiper-slide" style="background-image: url('slide4.png');"></div>
+    </div>
+
+    <!-- Пагинация -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Стрелки -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+  <!-- Секция 4: Соцсети -->
+  <section class="socials">
+    <h2>НАШИ СОЦСЕТИ</h2>
+    <div class="social-links">
+      <a href="https://www.vk.com" target="_blank" class="messenger-btn vk"></a>
+      <a href="https://www.instagram.com" target="_blank" class="messenger-btn instagram"></a>
+      <a href="https://www.telegram.com" target="_blank" class="messenger-btn telegram"></a>
+    </div>
+    <div class="cloud cloud4"></div>
+  </section>
+
+  <!-- Скрипты -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ВОСХОД</title>
+  <link rel="stylesheet" href="style.css" />  
+</head>
+<body>
+  <div class="background-top" style="height: 750px;"></div>
+  <div class="background-down"></div>
+  
+  <!-- Контейнер с текстом поверх облаков -->
+  <div class="content">
+    <header class="header-with-button">
+      <h1>ВОСХОД</h1>
+      <button disabled class="date-button">20.09.2025</button>
+    </header>
+    <p class="subtitle">изменения уже здесь</p>
+
+    <div class="centered-button">
+      <button disabled class="info">ДЛЯ УЧАСТИЯ</button>
+    </div>
+    <div class="centered-button">
+      <button disabled class="add-info">ЗАПОЛНИТЕ ФОРМУ</button>
+    </div>
+
+    <form id="participationForm" style="margin-top: 20px;">
+      <div class="form-field">
+        <input type="text" id="name" placeholder="ФИО" required />
+      </div>
+      <div class="form-field">
+        <input type="email" id="email" placeholder="Электронная почта" required />
+      </div>
+      <div class="form-field">
+        <input type="tel" id="phone" placeholder="Номер телефона" required />
+      </div>
+      <div class="form-field">
+        <input type="text" id="telegram" placeholder="Ник в Telegram" required />
+      </div>
+    </form>    
+
+    <div class="centered-button">
+      <button class="glow-on-hover" onclick="sendForm()">УЧАСТВОВАТЬ</button>
+    </div>
+    
+    <div class="cloud-wrapper">
+      <div class="cloud cloud4" style="width: 70%;"></div>
+    </div>
+    
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="script.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,582 @@
+/* === БАЗА === */
+body {
+  margin: 0;
+  background-color: #0B1957;
+  background-image: url('fon.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* === ТЕКСТ И ЗАГОЛОВКИ === */
+@font-face {
+  font-family: 'FoglihtenNo06';
+  src: url('FoglihtenNo06_076.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2 {
+  font-family: 'FoglihtenNo06', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  background: linear-gradient(to bottom, white, #E4BBC1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0.5rem auto;
+}
+
+/* СЕКЦИЯ 1 (верхнее оформление) */
+.hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  box-sizing: border-box;
+  overflow: hidden;                /* скрыть выступающие части облаков */
+  background: transparent;
+}
+
+/* контейнер облаков - занимает всю секцию и фиксируется за контентом */
+.cloud-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;     
+  overflow: hidden;
+}
+
+/* общий стиль для каждого облака */
+.cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.95;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 18px 40px rgba(6,12,40,0.25)); /* лёгкая тень для глубины */
+}
+
+/* конкретное расположение облаков (в процентах — выравнивание относительно секции) */
+.cloud1 {
+  background-image: url('cloud1.png');
+  left: -60%; 
+  top:  -10%;
+  width: 500px;
+  max-width: 1100px;
+  aspect-ratio: 6 / 2;
+  z-index: 0;
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.cloud2 {
+  background-image: url('cloud2.png');
+  left: 40%;
+  top: 30%;
+  width: 500px;
+  aspect-ratio: 9 / 3;
+  z-index: 0;
+  animation: floatSlow 10s ease-in-out infinite;
+  animation-delay: 0.6s;
+  opacity: 0.92;
+}
+
+.cloud3 {
+  background-image: url('cloud3.png');
+  left: -20%;
+  top: 40%;
+  width: 250px;
+  aspect-ratio: 4 / 1.6;
+  z-index: 0;
+  animation: floatSlow 7.2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* плавное вертикальное "плавание" облаков */
+@keyframes floatSlow {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ПЕРЕДНИЙ ПЛАН: заголовок и подпись (выше облаков) */
+.hero-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* заголовок ВОСХОД — адаптивный размер и градиентный текст */
+.hero-header h1 {
+  margin: 0;
+  line-height: 1;
+  font-family: 'FoglihtenNo06', sans-serif;
+  font-weight: 300;
+  /* адаптивный размер: от 2.2rem до 4.2rem в зависимости от ширины экрана */
+  font-size: clamp(4.0rem, 8vw, 5.5rem);
+  background: linear-gradient(180deg, #ffffff 0%, #E4BBC1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 28px rgba(6,12,40,0.35); /* лёгкая тень для контраста */
+}
+
+/* подпись под заголовком */
+.hero-header .subtitle {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.1em; /* увеличивает расстояние и визуально "разгружает" текст */
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2.8vw, 2.5rem);
+  color: #C17BA0;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(6,12,40,0.25);
+}
+
+/* Анимированная стрелка */
+.arrow-7 {
+  margin: 20px auto 0;
+  width: 38px;
+  height: 110px;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+  pointer-events: auto;
+}
+.arrow-7 span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid #C17BA0;
+  border-right: 5px solid #C17BA0;
+  transform: rotate(45deg);
+  margin: -16px auto;
+  animation: arrow-7 2s infinite;
+}
+.arrow-7 span:nth-child(2) { animation-delay: -0.2s; }
+.arrow-7 span:nth-child(3) { animation-delay: -0.4s; }
+
+@keyframes arrow-7 {
+  0% { opacity: 0; transform: translate(0,-20px) rotate(45deg); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(0,20px) rotate(45deg); }
+}
+
+/* Кнопка "УЧАСТВОВАТЬ" — на переднем плане */
+.centered-button {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.glow-on-hover {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.7rem;
+  background: #C17BA0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* Белое свечение */
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  padding: 12px;
+
+  /* Анимация пульсации свечения */
+  animation: glow-pulse 2s infinite ease-in-out;
+}
+
+@keyframes glow-pulse {
+  0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+}
+
+/* === СЕКЦИЯ 2 === */
+.features {
+  position: relative;
+  min-height: 72vh;
+  padding: 60px 0;
+  margin-top: -35%;
+}
+
+.features h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Контейнер для "ступенчатого" появления */
+.scroll-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 1150px;
+}
+
+.square-block {
+  position: sticky;
+  top: 50px;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 1;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px) scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.color1 { background: #FFFFFF; z-index: 3; }
+.color2 { background: #E4BBC1; z-index: 4; transform: translateX(18px) scale(0.92) rotate(-3deg); }
+.color3 { background: #C17BA0; z-index: 5; transform: translateX(-26px) scale(0.92) rotate(-6deg); }
+
+.square-text {
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.color1 .square-text { color: #C17BA0; }
+.color2 .square-text { color: #fff; }
+.color3 .square-text { color: #fff; }
+
+.square-block.active { opacity: 1; }
+
+.color1.active { transform: translateX(0) translateY(0) scale(1) rotate(0deg); }
+.color2.active { transform: translateX(22px) translateY(40px) scale(1) rotate(-4deg); }
+.color3.active { transform: translateX(-32px) translateY(80px) scale(1) rotate(2deg); }
+
+/* === Секция 3: Заявка + Карусель === */
+.application {
+  padding: 60px 20px;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.application .centered-button .glow-on-hover {
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.swiper-container {
+  width: 95%;
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00000036;
+}
+
+.swiper-slide:not(.swiper-slide-prev):not(.swiper-slide-active):not(.swiper-slide-next) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.swiper-slide-prev, 
+.swiper-slide-next {
+  opacity: 0.3;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+
+/* Стрелки */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #C17BA0 !important;
+  width: 44px;
+  height: 44px;
+  transition: background-color 0.3s ease;
+}
+
+/* Пагинация */
+.swiper-pagination {
+  margin-top: 15px;
+}
+
+.swiper-pagination-bullet {
+  background: #C17BA0 !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #C17BA0 !important;
+  opacity: 1;
+}
+
+/* === СЕКЦИЯ 4: СОЦСЕТИ === */
+.socials {
+  position: relative;
+  padding: 0px 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.socials h2 {
+  font-size: 2.2rem;
+}
+
+/* Контейнер для кнопок */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  z-index: 2;
+  position: relative;
+  padding: 5%;
+}
+
+/* КНОПКИ */
+.messenger-btn {
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+/* Подсветка при наведении */
+.messenger-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Фоны для каждой кнопки */
+.vk {
+  background-image: url('VK.svg');
+}
+
+.instagram {
+  background-image: url('INST.svg');
+}
+
+.telegram {
+  background-image: url('TG.svg');
+}
+
+/* Облако снизу */
+.cloud4 {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 150px;
+  background: url('cloud4.png') no-repeat center / contain;
+  z-index: 0;
+  animation: floatCloud4 6s ease-in-out infinite;
+}
+
+/* Анимация плавания */
+@keyframes floatCloud4 {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
+}
+
+
+/* Форма регистрации */
+.header-with-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-field {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.form-field input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid white;
+  border-radius: 30px;
+  outline: none;
+}
+.form-field input:focus {
+  border-color: #C17BA0;
+  box-shadow: 0 0 10px #C17BA0;
+}
+
+.cloud-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ==== АДАПТАЦИЯ ДЛЯ КОМПЬЮТЕРА ==== */
+@media (min-width: 768px) {
+
+  /* СЕКЦИЯ 1: Верхнее оформление */
+  .hero {
+    height: 100vh; /* Полный экран */
+    padding: 20px 20px;
+  }
+
+  .hero-header h1 {
+    font-size: clamp(5rem, 6vw, 8rem); /* Крупнее заголовок */
+  }
+
+  .hero-header .subtitle {
+    font-size: clamp(1.6rem, 2vw, 2.5rem);
+  }
+
+  .arrow-7 {
+    margin-top: 40px;
+  }
+  
+  /* Первое облако — по левому краю */
+  .cloud1 {
+    left: 10%;
+    right: auto;
+    top: 0;
+  }
+
+  /* Второе облако — по правому краю */
+  .cloud2 {
+    left: auto;
+    right: -50px;
+    top: 200px;
+    width: 600px;
+  }
+
+  /* Третье облако можно тоже подвинуть, если надо */
+  .cloud3 {
+    left: 0;
+    top: 250px;
+    width: 400px;
+  }
+
+  /* === СЕКЦИЯ 2: ЧТО ВАС ЖДЕТ === */
+  .features {
+    margin-top: -100px; /* Меньше налезает на первую секцию */
+    padding: 10px 40px;
+    min-height: auto;
+  }
+
+  /* Контейнер — горизонтальное расположение */
+  .scroll-stack {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 50px;
+    min-height: auto;
+    margin-top: 40px;
+  }
+
+  /* Карточки — статично, без sticky и без анимаций */
+  .square-block {
+    position: relative; /* убираем sticky */
+    top: auto;
+    margin: 0;
+    opacity: 1; /* всегда видны */
+    transform: none; /* убираем все сдвиги */
+    width: 320px;
+    height: 320px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Лёгкое увеличение при наведении */
+  .square-block:hover {
+    transform: scale(1.05);
+  }
+
+  /* Убираем все индивидуальные повороты и сдвиги */
+  .color1,  .color2,  .color3 {
+    transform: none;
+  }
+
+  /* Убираем правила "active", чтобы не было прыжков */
+  .color1.active,  .color2.active,  .color3.active {
+    transform: none;
+  }
+
+  /* Текст немного крупнее на ПК */
+  .square-text {
+    font-size: clamp(1.0rem, 2vw, 1.3rem);;
+  }
+
+  /* === СЕКЦИЯ 3: Заявка + Карусель === */
+
+  .application .centered-button .glow-on-hover {
+    font-size: 2rem;
+    padding: 16px 40px;
+    margin-bottom: 40px;
+  }
+  
+  .swiper-container {
+    width: 50%;
+    max-width: 1200px;
+  }
+
+  .swiper-slide {
+    min-height: 500px; /* Крупнее слайды */
+    border-radius: 16px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* === СЕКЦИЯ 4: Соцсети === */
+  .socials h2 {
+    font-size: 3rem;
+  }
+
+  .social-links {
+    gap: 80px;
+    padding: 2%;
+  }
+
+  .messenger-btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cloud4 {    
+    height: 200px;
+  }
+}
+
