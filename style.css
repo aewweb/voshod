@@ -188,7 +188,7 @@ h1, h2 {
 
 .glow-on-hover {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 1.7rem;
   background: #C17BA0;
   color: white;
@@ -239,7 +239,7 @@ h1, h2 {
   width: 250px;
   height: 250px;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,7 +276,7 @@ h1, h2 {
 
 /* === Секция 3: Заявка + Карусель === */
 .application {
-  padding: 60px 20px;
+  padding: 40px 20px;
   text-align: center;
   z-index: 10;
   position: relative;
@@ -284,15 +284,22 @@ h1, h2 {
 
 .application .centered-button .glow-on-hover {
   margin-bottom: 30px;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* расстояние между стрелками и фото */
 }
 
 .swiper-container {
-  width: 95%;
+  width: 85%;
   max-width: 768px;
-  margin: 0 auto;
-  position: relative;
   overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00000036;
 }
 
 .swiper-slide {
@@ -300,13 +307,24 @@ h1, h2 {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00000036;
 }
 
-.swiper-slide:not(.swiper-slide-prev):not(.swiper-slide-active):not(.swiper-slide-next) {
-  opacity: 0;
-  pointer-events: none;
+.swiper-button-prev,
+.swiper-button-next {
+  color: #E4BBC1 !important;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 60% !important;
+  z-index: 10;
+  text-shadow: 0 0 8px white, 0 0 15px white; /* мягкое белое свечение */
+}
+
+.swiper-pagination {
+  text-align: center;
+}
+.swiper-pagination-bullet {
+  background: #E4BBC1 !important;
 }
 
 .swiper-slide-prev, 
@@ -318,27 +336,8 @@ h1, h2 {
   opacity: 1;
 }
 
-/* Стрелки */
-.swiper-button-prev,
-.swiper-button-next {
-  color: #C17BA0 !important;
-  width: 44px;
-  height: 44px;
-  transition: background-color 0.3s ease;
-}
-
-/* Пагинация */
-.swiper-pagination {
-  margin-top: 15px;
-}
-
-.swiper-pagination-bullet {
-  background: #C17BA0 !important;
-  opacity: 1;
-}
-
 .swiper-pagination-bullet-active {
-  background: #C17BA0 !important;
+  background: #E4BBC1 !important;
   opacity: 1;
 }
 
@@ -453,7 +452,7 @@ h1, h2 {
   font-size: 1.3rem;
   padding: 10px 26px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 600;
   background-color: transparent;
   color: #C17BA0;
   border: 2px solid #C17BA0;
@@ -466,7 +465,7 @@ h1, h2 {
 
 .centered-button .date-button {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 600;
   margin-top: 15px;
   text-align: center;
   color: #ffffff;
@@ -573,10 +572,9 @@ form#participationForm {
 
   /* Кнопка УЧАСТВОВАТЬ */
   .centered-button .glow-on-hover {
-    font-size: 1.3rem;
+    font-size: 2.5rem;
     padding: 16px 48px;
-    border-radius: 30px;
-    max-width: 320px;
+    border-radius: 10px;
     margin: 0 auto;
     display: block;
     cursor: pointer;
@@ -600,7 +598,7 @@ form#participationForm {
 
   /* СЕКЦИЯ 1: Верхнее оформление */
   .hero {
-    height: 100vh; /* Полный экран */
+    height: 650px; /* Полный экран */
     padding: 20px 20px;
   }
 
@@ -689,14 +687,22 @@ form#participationForm {
 
   /* === СЕКЦИЯ 3: Заявка + Карусель === */
 
+  .application {
+    width: 60%;
+    margin: 0 auto; /* центрирует блок */
+  }
+
   .application .centered-button .glow-on-hover {
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 16px 40px;
     margin-bottom: 40px;
   }
   
+  .carousel-wrapper {
+    gap: 10px; /* расстояние между стрелками и фото */
+  }
+  
   .swiper-container {
-    width: 50%;
     max-width: 1200px;
   }
 
