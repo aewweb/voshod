@@ -487,26 +487,94 @@ form#participationForm {
 
 .form-field input {
   width: 100%;
-  padding: 14px 20px;
-  font-size: 1.1rem;
-  border: 1.5px solid rgba(255, 255, 255, 0.7); /* более яркая рамка */
+  padding: 14px 10px;
+  font-size: 1.0rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.25); /* менее прозрачный фон */
+  background-color: rgba(255, 255, 255, 0.25);
   color: white;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .form-field input::placeholder {
-  color: rgba(255, 255, 255, 0.9); /* более яркий placeholder */
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .form-field input:focus {
   border-color: #C17BA0;
   box-shadow: 0 0 12px #C17BA0;
-  background-color: rgba(255 255 255 / 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 }
+
+/* Ошибки */
+.error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 12px #ff4d4d !important;
+}
+
+.error-message {
+  display: block;
+  color: #ff4d4d;
+  font-size: 0.9rem;
+}
+
+/* Фон модального окна */
+.modal {
+  display: none; /* скрыто по умолчанию */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Контент */
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  margin: 50% auto;
+  padding: 20px 30px;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.3s ease;
+}
+
+/* Кнопка закрытия */
+.modal-close {
+  color: white;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #C17BA0;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-30px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
 
 @media (min-width: 768px) {
 
@@ -554,20 +622,20 @@ form#participationForm {
     padding: 0 20px;
   }
 
-  .form-field input {
-    font-size: 1.3rem;
-    padding: 18px 24px;
-    border-radius: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-
   .form-field input::placeholder {
     font-size: 1.15rem;
   }
 
   .form-field {
     margin-bottom: 25px;
+  }
+
+  .form-field input {
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    font-size: 1.2rem;
   }
 
   /* Кнопка УЧАСТВОВАТЬ */
@@ -590,8 +658,15 @@ form#participationForm {
     margin: 0 auto 30px auto;
   }
 
-}
+  .modal-content {
+    margin: 10% auto;
+    font-size: 2.5rem;
+  }
 
+  .modal-close {
+    font-size: 50px;
+  }
+}
 
 /* ==== АДАПТАЦИЯ ДЛЯ КОМПЬЮТЕРА ==== */
 @media (min-width: 768px) {
