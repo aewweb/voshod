@@ -20,31 +20,85 @@
       <button disabled class="date-button">Для участия заполните форму</button>
     </div>
 
-    <form id="participationForm" style="margin-top: 20px;">
+    
+    <form id="participationForm" novalidate style="margin-top: 20px;">
       <div class="form-field">
-        <input type="text" id="name" placeholder="ФИО" required />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="ФИО"
+          required
+          aria-invalid="false"
+          aria-describedby="name-error"
+          autocomplete="name"
+        />
+        <small class="error-message" id="name-error"></small>
       </div>
-      <div class="form-field">
-        <input type="email" id="email" placeholder="Электронная почта" required />
-      </div>
-      <div class="form-field">
-        <input type="tel" id="phone" placeholder="Номер телефона" required />
-      </div>
-      <div class="form-field">
-        <input type="text" id="telegram" placeholder="Ник в Telegram" required />
-      </div>
-    </form>    
 
-    <div class="centered-button">
-      <button class="glow-on-hover" onclick="sendForm()">УЧАСТВОВАТЬ</button>
-    </div>
+      <div class="form-field">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Электронная почта"
+          required
+          aria-invalid="false"
+          aria-describedby="email-error"
+          autocomplete="email"
+        />
+        <small class="error-message" id="email-error"></small>
+      </div>
+
+      <div class="form-field">
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+375 (__) ___-__-__"
+          required
+          aria-invalid="false"
+          aria-describedby="phone-error"
+          inputmode="numeric"
+          autocomplete="tel"
+        />
+        <small class="error-message" id="phone-error"></small>
+      </div>
+
+      <div class="form-field">
+        <input
+          type="text"
+          id="telegram"
+          name="telegram"
+          placeholder="Ник в Telegram"
+          aria-invalid="false"
+          aria-describedby="telegram-error"
+          autocomplete="off"
+        />
+        <small class="error-message" id="telegram-error"></small>
+      </div>
+
+      <div class="centered-button">
+        <button class="glow-on-hover" id="submitBtn" type="submit">УЧАСТВОВАТЬ</button>
+      </div>
+    </form>
     
     <div class="cloud-wrapper">
       <div class="cloud cloud4" style="width: 70%;"></div>
     </div>
-    
-  <!-- Swiper JS -->
-  <script src="script.js"></script>
+  
+  <!-- Подключаем Inputmask -->
+  <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/inputmask.min.js"></script>
+  <script src="scriptRegistr.js"></script>
   
 </body>
+
+<!-- Модальное окно -->
+<div id="successModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <p>Ваши данные отправлены!<br>Свяжемся в течение 2 дней.<br>Спасибо за участие!</p>
+  </div>
+</div>
+
 </html>
